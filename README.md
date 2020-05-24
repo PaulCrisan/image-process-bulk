@@ -30,6 +30,7 @@ Syntax:
 script-name [absolute/path/to/file]&nbsp;&nbsp;[no args | -default|-d | -test|-t]
 </br>
 [absolute/path/to/file] &nbsp;&nbsp; --absolute path to a target directory where image files, or sub-directories containing image files that need to be processed, are located. Process file types: JPEG ,jpeg, JPG, jpg, PNG, png.
+</br>
 script-name [-help|-h] &nbsp;&nbsp; --show help
 
 </br>
