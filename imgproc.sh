@@ -23,7 +23,7 @@ function Help {
     echo #
 }
 
-if [[ "$path" == "-help" || "-h" ]];
+if [[ "$path" == "-help" ]];
   then 
     Help
     exit 1
@@ -32,7 +32,10 @@ fi
 
 if [[ $# -eq 0 ||  ! -d "$path" ]]
   then
+   tput setaf 1 && tput bold;
+    echo #
     echo "No path supplied or path is not a valid directory"
+    tput sgr0 echo #
     Help
     exit 1
 fi
