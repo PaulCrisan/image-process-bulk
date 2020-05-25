@@ -46,8 +46,8 @@ fi
 
 function joke {
     echo "Processing images is hard. Have a joke first: "
-    iomama="$(curl -s http://api.icndb.com/jokes/random?firstName=John\&amp;lastName=Doe)"
-    tput setaf 5 && tput bold; echo ${iomama} | grep -oP "\"joke.*,"
+    io="$(curl -s http://api.icndb.com/jokes/random?firstName=John\&amp;lastName=Doe)"
+    tput setaf 5 && tput bold; echo ${io} | grep -oP "\"joke.*,"
     tput sgr0 echo #
     echo #
 }
