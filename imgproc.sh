@@ -8,11 +8,14 @@ function Help {
     echo #
     echo "Helper for bulk process images with ImageMagick. https://imagemagick.org".
     echo #
-    echo "Syntax: script-name [absolute/path/to/file] [no args | -default|-d  | -test|-t]"
+    echo "Syntax: script-name [absolute/path/to/file] [no args | -default|-d  | -test|-t | -width|-w]"
     echo #
     echo "Options:"
     echo "no args                 Follow prompts to set custom max-width and quality percentage to process."
     echo "                        ALL target file images will be processed"
+    echo #
+    echo "-width | -w             Follow prompts to set only custom max-width"
+    echo "                        ALL target file images will be processed "
     echo #
     echo "-default | -d           Process all images at max-width: 1024 and quality: 75%."
     echo "                        ALL target file images will be processed "
@@ -74,6 +77,12 @@ function run {
   find "$path" -type f -iname "*.png" -exec mogrify -verbose -strip -format png -layers Dispose -resize ${width}\>x${width}\> -quality ${quality}% {} +
 }
 
+function run_width {
+  find "$path" -type f -iname "*.jpg" -exec mogrify -verbose -strip -format jpg -layers Dispose -resize ${width}\>x${width}\>  {} +
+  find "$path" -type f -iname "*.jpeg" -exec mogrify -verbose -strip -format jpeg -layers Dispose -resize ${width}\>x${width}\>  {} +
+  find "$path" -type f -iname "*.png" -exec mogrify -verbose -strip -format png -layers Dispose -resize ${width}\>x${width}\>  {} +
+}
+
 function -default {
   
   find "$path" -type f -iname "*.jpg" -exec mogrify -verbose -strip -format jpg -layers Dispose -resize 1024\>x1024\> -quality 75% {} +
@@ -126,6 +135,10 @@ case "$arg" in
         ;;
     -default | -d)
         -default
+        ;;
+    -width | -w)
+        -width
+        run_width
         ;;
 
     "")
