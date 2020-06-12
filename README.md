@@ -40,5 +40,5 @@ Options:
 |--|--|
 | no args | Follow prompts to set custom max-width and quality percentage to process. ALL target file images will be processed. Bonus: get prompted with a joke to light up your day |
 |‑default/‑d| Process all images at max-width: 1024 and quality: 75%. ALL target file images will be processed |
-|‑test/‑t| Process all images at custom max-width. ALL target file images will be processed |
+|‑width/‑w| Process all images at custom max-width. ALL target file images will be processed |
 | ‑test/‑t| Process all images in temporary folder. Follow prompts to set custom max-width and quality percentage. NO TARGET file images will be processed. Size of total processed images shown at end.
